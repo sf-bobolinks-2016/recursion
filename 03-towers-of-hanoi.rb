@@ -18,11 +18,19 @@ require 'rspec'
 
 # The method should return the number of moves required to solve the puzzle
 def towers_of_hanoi(towers, current_level, source, destination, other)
+  return 0 if current_level == 0
+  # move tower of height current_level - 1 from source to other
+  steps = towers_of_hanoi(towers, current_level - 1, source, other, destination)
+  # move the disk from source to destination
+  towers[destination] << towers[source].pop()
+  steps += 1
+  # move tower of height current_level - 1 from other to destination
+  steps += towers_of_hanoi(towers, current_level - 1, other, destination, source)
 end
 
-# towers = [[7, 6, 5, 4, 3, 2, 1], [], []]
-# p towers_of_hanoi(towers, 7, 0, 1, 2)
-# p towers
+towers = [[7, 6, 5, 4, 3, 2, 1], [], []]
+p towers_of_hanoi(towers, 7, 0, 1, 2)
+p towers
 
 describe "towers_of_hanoi" do
   let(:towers) { [[7, 6, 5, 4, 3, 2, 1], [], []] }

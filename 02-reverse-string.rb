@@ -6,6 +6,10 @@ require 'rspec'
 # reverse_string("hello") => "olleh"
 
 def reverse_string(str)
+  return str if str.length == 1
+  # call reverse_string on str with last letter removed
+  # return ^ with last letter put at the front
+  return str[-1] + reverse_string(str[0...-1])
 end
 
 puts reverse_string("abcd")

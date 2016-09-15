@@ -1,4 +1,10 @@
-Recursion
+# Announcements
+* Office Hours
+  * What they are, how to schedule
+* forking vs cloning challenges
+
+
+# Recursion
   * Why do we care?
     * useful for working with recursive data structures (trees, like the DOM in html, linked lists, graphs)
     * useful for exploring all options when there are a LOT of options (e.g. generating all permutations of a string, finding a path through a maze)
